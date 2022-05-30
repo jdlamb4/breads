@@ -3,8 +3,20 @@ const Bread = require('../models/breads.js')
 const breads = express.Router()
 
 // INDEX
+// breads.get('/', (req, res) => {
+//   res.render('index')
+  // we are calling index as it it being exported in the index.jsx
+// res.send(Bread)
+// })
+
+// INDEX
 breads.get('/', (req, res) => {
-  res.send(Bread)
+  res.render('Index',
+    {
+      breads: Bread
+    }
+  )
+// res.send(Bread)
 })
 
 
