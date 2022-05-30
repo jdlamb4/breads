@@ -1,3 +1,4 @@
+// Views is what we're going to be utilizing in terms of showcasing the server side rendered information
 const React = require('react')
 const Default = require('./layouts/Default')
 

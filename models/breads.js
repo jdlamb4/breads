@@ -1,3 +1,5 @@
+// Models represent the objects that contain the data that we will be vizualizing when we're interacting with the webpage
+// Node modules are our dependencies
 module.exports = [
     {
       name: 'Rye',

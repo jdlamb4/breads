@@ -1,3 +1,5 @@
+// server.js is sort of our entry point to our server application
+
 // DEPENDENCIES
 const express = require('express')
 
