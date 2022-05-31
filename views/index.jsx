@@ -1,4 +1,5 @@
 // Views is what we're going to be utilizing in terms of showcasing the server side rendered information
+// Model views controller is actually the design pattern that is the main uses case for developing
 const React = require('react')
 const Default = require('./layouts/Default')
 
