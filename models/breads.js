@@ -17,6 +17,12 @@ const breadSchema = new Schema({
   }
 })
 
+// helper methods 
+breadSchema.methods.getBakedBy = function(){
+  return `${this.name} was baked with love by ${this.baker}`
+}
+
+
 // model and export
 const Bread = mongoose.model('Bread', breadSchema)
   // const Bread is the variable we are saving our model to. Conventionally, it should be capitalized and use the singular version of the collection the model is for 
