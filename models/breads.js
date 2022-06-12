@@ -10,7 +10,11 @@ const { Schema } = mongoose
 const breadSchema = new Schema({
   name: { type: String, required: true }, // Mongoose schemas can make a field be required, simply by adding required after the field type
   hasGluten: { Boolean },
-  image: { type: String, default: 'https://place-puppy.com/500x500' } // can set a default option in case a document is made wihtout a value in the field
+  image: { type: String, default: 'https://place-puppy.com/500x500' }, // can set a default option in case a document is made wihtout a value in the field
+  baker: {
+    type: String,
+    enum: ['Rachel', 'Monica', 'Joey', 'Chandler', 'Ross', 'Phoebe']
+  }
 })
 
 // model and export
