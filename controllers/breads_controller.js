@@ -33,13 +33,19 @@ breads.get('/new', (req, res) => {
 })
 
 // EDIT
-breads.get("/:id/edit", (req, res) => {
-  Bread.findById(req.params.id).then((foundBread) => {
-    res.render("edit", {
-      bread: foundBread,
-    });
-  });
-});
+breads.get('/:id/edit', (req, res) => {
+  Baker.find()
+    .then(foundBakers => {
+        Bread.findById(req.params.id)
+          .then(foundBread => {
+            res.render('edit', {
+                bread: foundBread, 
+                bakers: foundBakers 
+            })
+          })
+    })
+})
+
 
 // SHOW   using the value put into the query parameter to decide what to display on webpage
 // breads.get('/:arrayIndex', (req, res) => {
@@ -51,15 +57,19 @@ breads.get("/:id/edit", (req, res) => {
 // had the above code for the show route uncommented and when the new show route was pasted in, it caused a cannot read properties of undefined (reading 'name')
 
 // SHOW
-breads.get("/:id", (req, res) => {
-  Bread.findById(req.params.id).then((foundBread) => {
-    const bakedBy = foundBread.getBakedBy();
-    console.log(bakedBy);
-    res.render("show", {
-      bread: foundBread,
-    });
-  });
-});
+breads.get('/:id', (req, res) => {
+  Bread.findById(req.params.id)
+      .populate('baker')
+      .then((foundBread) => {
+        res.render('show', {
+            bread: foundBread
+        })
+      })
+      .catch(err => {
+        res.send('404')
+      })
+})
+
 
 // CREATE
 breads.post("/", (req, res) => {
