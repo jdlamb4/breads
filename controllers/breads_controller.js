@@ -3,6 +3,7 @@ const express = require("express");
 const { append } = require("express/lib/response");
 const Bread = require("../models/breads.js");
 const breads = express.Router();
+const Baker = require('../models/baker.js')
 
 // INDEX
 // breads.get('/', (req, res) => {
@@ -22,9 +23,14 @@ breads.get("/", (req, res) => {
 });
 
 // NEW
-breads.get("/new", (req, res) => {
-  res.render("new");
-});
+breads.get('/new', (req, res) => {
+  Baker.find()
+      .then(foundBakers => {
+          res.render('new', {
+              bakers: foundBakers
+          })
+    })
+})
 
 // EDIT
 breads.get("/:id/edit", (req, res) => {
