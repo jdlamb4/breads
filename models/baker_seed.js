@@ -1,3 +1,6 @@
+// We have to make routes that utilize the model. To do so we have to create
+// a separate controller for bakers, this page is to create a simple seed route to
+// simultaneously seed the baker data given to us from out client and test if our model is working correctly
 module.exports = [
     {
       name: 'Monica',

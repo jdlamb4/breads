@@ -12,8 +12,9 @@ const breadSchema = new Schema({
   hasGluten: { Boolean },
   image: { type: String, default: 'https://place-puppy.com/500x500' }, // can set a default option in case a document is made wihtout a value in the field
   baker: {
-    type: Schema.Types.ObjectID,
-    ref: 'Baker'
+    type: Schema.Types.ObjectID, 
+    // reference ID field
+    ref: 'Baker' // can reference it by name because we don't have to refer to the actual model
   }
 })
 
